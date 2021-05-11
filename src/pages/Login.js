@@ -1,17 +1,18 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { Container, Title } from '../components/styles';
+import { Button } from 'react-native';
 
 export default function Login({ navigation }){
     return(
-        <View>
-            <Text>
+        <Container>
+            <Title>
                 LOGIN
-            </Text>
+            </Title>
             <Button
                 title="Register"
                 onPress={() => navigation.navigate('Register')} 
             />
-        </View>
+        </Container>
     );
 
 }
