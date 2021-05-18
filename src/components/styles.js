@@ -7,11 +7,6 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-    font-size: 10px;
-    color: #Yellow;
-`;
-
-export const Title1 = styled.Text`
     font-size: 24px;
     color: #00081d;
     font-family: "TypoGraphica";
@@ -20,6 +15,15 @@ export const Title1 = styled.Text`
 `;
 
 export const Botao = styled.Button`
+    color: aliceblue;
+    background-color: #102660;
+    border-color: #102660;
+    border-radius: 30px;
+    padding: 1% 10%;
+    margin-bottom: 25;
+`;
+
+export const Botao1 = styled.Button`
     color: aliceblue;
     background-color: #102660;
     border-color: #102660;
@@ -38,8 +42,10 @@ export const Inputs = styled.TextInput`
    background-color: #102660 !important;
    border-color: #102660 !important;
    border-radius: 40px !important;
-   padding: 5% 20% !important;
+   padding: 5% 20% ;
    font-family: "Roboto" !important;
    margin-top: auto !important;
    margin-bottom: 15;
+   margin-left: 60;
+   margin-right: 60;
 `;

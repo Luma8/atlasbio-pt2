@@ -1,30 +1,61 @@
 import React from 'react';
-import { Container, Title, Title1, Botao, Div1, Inputs } from '../components/styles';
-import { Button, TextInput, Image, email, password } from 'react-native';
+import { TextInput, SafeAreaView, StyleSheet, Text } from 'react-native';
 
-export default function Login({ navigation }){
-    return(
-        <Container>
-            <Div1>
-                <Title1 h1>
-                    Fazer login
-                </Title1>
-                <Inputs
-                   placeholder="Email"
-                />
-                 <Inputs
-                   placeholder="Senha"
-                />
-                
-            </Div1>
-            <Title>
-                LOGIN
-            </Title>
-            <Botao
-                title="Entra"
-                onPress={() => navigation.navigate('Register')} 
-                color="#21429d"
+const Login = () => {
+    const [email, onChangeEmail] = React.useState(null);
+    const [password, onChangePassword] = React.useState(null);
+
+    return (
+        <SafeAreaView>
+            <Text h1
+                style={styles.h1}
+            >
+                Fazer Login
+                </Text>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeEmail}
+                value={email}
+                placeholder="Email"
+                autoCompleteType="email"
             />
-        </Container>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangePassword}
+                value={password}
+                placeholder="Senha"
+                autoCompleteType="password"
+            />
+        </SafeAreaView>
     );
-}
+};
+
+const styles = StyleSheet.create({
+    input: {
+        color: 'aliceblue',
+        backgroundColor: '#102660',
+        borderColor: '#102660',
+        borderRadius: 30,
+        marginBot: 3,
+        marginTop: 3,
+        padding: '5% 20%',
+        height: 40,
+        margin: 12,
+        marginLeft: 30,
+        marginRight: 30,
+        borderWidth: 1,
+    },
+    h1: {
+        fontSize: 16,
+        fontStyle: 'normal',
+        display: 'flex',
+        marginLeft: 130,
+        fontWeight: 'bold',
+        color: '#00081d',
+        marginBottom: 60,
+        marginTop: 5,
+        alignItems: 'center',
+    },
+});
+
+export default Login;
