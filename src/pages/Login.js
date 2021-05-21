@@ -18,6 +18,7 @@ const Login = () => {
                 value={email}
                 placeholder="Email"
                 autoCompleteType="email"
+                placeholderTextColor="white"
             />
             <TextInput
                 style={styles.input}
@@ -25,6 +26,7 @@ const Login = () => {
                 value={password}
                 placeholder="Senha"
                 autoCompleteType="password"
+                placeholderTextColor="white"
             />
         </SafeAreaView>
     );
@@ -36,9 +38,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#102660',
         borderColor: '#102660',
         borderRadius: 30,
-        marginBot: 3,
-        marginTop: 3,
-        padding: '5% 20%',
         height: 40,
         margin: 12,
         marginLeft: 30,
@@ -49,11 +48,10 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontStyle: 'normal',
         display: 'flex',
-        marginLeft: 130,
+        marginLeft: 160,
+        height: '20%',
         fontWeight: 'bold',
         color: '#00081d',
-        marginBottom: 60,
-        marginTop: 5,
         alignItems: 'center',
     },
 });
