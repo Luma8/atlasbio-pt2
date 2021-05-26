@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextInput, SafeAreaView, StyleSheet, Text, Button, View, Image, CheckBox } from 'react-native';
 
-const Login = ({ navigation }) => {
+const Recover = ({ navigation }) => {
     const [email, onChangeEmail] = React.useState(null);
     const [password, onChangePassword] = React.useState(null);
     const [isSelected, setSelection] = useState(false);
@@ -9,16 +9,10 @@ const Login = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Image
-                style={styles.tinyLogo}
-                source={{
-                uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-            }}
-             />
             <Text h1
                 style={styles.h1}
             >
-                Fazer Login
+                Recuperar Senha
                 </Text>
             <TextInput
                 style={styles.input}
@@ -28,50 +22,14 @@ const Login = ({ navigation }) => {
                 autoCompleteType="email"
                 placeholderTextColor="white"
             />
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangePassword}
-                value={password}
-                placeholder=" Senha"
-                autoCompleteType="password"
-                placeholderTextColor="white"
-            />
-            <View style={styles.checkboxContainer}>
-                <CheckBox
-                value={isSelected}
-                onValueChange={setSelection}
-                style={styles.checkbox}
-                />
-                <Text style={styles.label}>Lembrar Senha?</Text>
-            </View>
+             
             <View style={styles.button}>
            <Button
-                title="Entrar"
+                title="Enviar"
                 color="#102660"
-               
+                onPress={ () => navigation.navigate('Login')}
          />
-            </View>
-            <View style={styles.buttonG}>
-           <Button
-                title="Continuar com o Google"
-                color="#102660"
-                //onPress={() => Alert.alert('Cannot press this one')}
-         />
-            </View>
-            <View style={styles.buttonG}>
-           <Button
-                title="Novo usuario crie uma conta"
-                color="#102660"
-                onPress={ () => navigation.navigate('Register')}
-         />
-            </View>
-            <Text 
-                style={styles.h2}
-                onPress={ () => navigation.navigate('Recover')}
-            >
-                
-            Esqueceu sua senha? Clique aqui
-            </Text>
+         </View>
         </SafeAreaView>
         
     );
@@ -98,18 +56,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontStyle: 'normal',    
         display: 'flex',
-        marginLeft: 145,
-        height: '15%',
-        fontWeight: 'bold',
-        color: '#00081d',
-        alignItems: 'center',
-    },
-    h2: {
-        fontSize: 16,
-        fontStyle: 'normal',    
-        display: 'flex',
-        marginLeft: 50,
-        height: '15%',
+        marginLeft: 125,
+        height: '10%',
         fontWeight: 'bold',
         color: '#00081d',
         alignItems: 'center',
@@ -124,6 +72,7 @@ const styles = StyleSheet.create({
         marginLeft: 145,
         marginRight: 145,
         borderWidth: 1,
+        fontStyle: 'normal', 
     },
     buttonG: {//Botão Grande
         color: 'aliceblue',
@@ -154,4 +103,4 @@ const styles = StyleSheet.create({
       },
 });
 
-export default Login;
+export default Recover;
