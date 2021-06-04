@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput, SafeAreaView, StyleSheet, Text, Button, View, Image, CheckBox } from 'react-native';
+import { TextInput, SafeAreaView, StyleSheet, Text, Button, View, Image, CheckBox, TouchableOpacity } from 'react-native';
 
 const Recover = ({ navigation }) => {
     const [email, onChangeEmail] = React.useState(null);
@@ -9,6 +9,10 @@ const Recover = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
+             <Image
+                style={styles.tinyLogo}
+                source={require('../../public/img/logo.png')}
+            />
             <Text h1
                 style={styles.h1}
             >
@@ -23,13 +27,14 @@ const Recover = ({ navigation }) => {
                 placeholderTextColor="white"
             />
              
-            <View style={styles.button}>
-           <Button
-                title="Enviar"
-                color="#102660"
-                onPress={ () => navigation.navigate('Login')}
-         />
-         </View>
+             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.TextButton}>
+                    Enviar
+                </Text>
+            </TouchableOpacity>
+            <Text style={styles.h2} onPress={() => navigation.navigate('Login')}> 
+            Sua senha será enviada para seu e-mail
+            </Text>
         </SafeAreaView>
         
     );
@@ -40,7 +45,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         marginHorizontal: 16,
-      },
+    },
     input: {
         color: 'aliceblue',
         backgroundColor: '#102660',
@@ -54,25 +59,36 @@ const styles = StyleSheet.create({
     },
     h1: {
         fontSize: 16,
-        fontStyle: 'normal',    
+        fontStyle: 'normal',
         display: 'flex',
-        marginLeft: 125,
-        height: '10%',
+        marginLeft: 130,
+        height: '15%',
+        fontWeight: 'bold',
+        color: '#00081d',
+        alignItems: 'center',
+        top: 20,
+    },
+    h2: {
+        top: 180,
+        justifyContent: 'center',
+        fontSize: 16,
+        fontStyle: 'normal',
+        display: 'flex',
+        marginLeft: 30,
+        height: '15%',
         fontWeight: 'bold',
         color: '#00081d',
         alignItems: 'center',
     },
     button: {//Botão para Entrar
-        color: 'aliceblue',
         backgroundColor: '#102660',
         borderColor: '#102660',
         borderRadius: 30,
         height: 40,
-        margin: 12,
-        marginLeft: 145,
-        marginRight: 145,
+        margin: 5,
+        marginLeft: 120,
+        marginRight: 120,
         borderWidth: 1,
-        fontStyle: 'normal', 
     },
     buttonG: {//Botão Grande
         color: 'aliceblue',
@@ -86,21 +102,28 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     tinyLogo: {
-        width: 50,
-        height: 50,
-        marginLeft: 145,
-      },
-      checkboxContainer: {
+        marginLeft: 110,
+        bottom: 5,
+    },
+    checkboxContainer: {
         flexDirection: "row",
         marginBottom: 20,
         marginLeft: 100,
-      },
-      checkbox: {
+    },
+    checkbox: {
         alignSelf: "center",
-      },
-      label: {
+    },
+    label: {
         margin: 8,
-      },
+    },
+    TextButton: {
+        fontSize: 16,
+        paddingTop: 7,
+        fontStyle: 'normal',
+        color: 'white',
+        textAlignVertical: "center",
+        textAlign: "center",
+    }
 });
 
 export default Recover;

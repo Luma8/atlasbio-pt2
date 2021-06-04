@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import { TextInput, SafeAreaView, StyleSheet, Text, Button, View, Image, CheckBox } from 'react-native';
+import { TextInput, SafeAreaView, StyleSheet, Text, Button, View, Image, CheckBox, TouchableOpacity } from 'react-native';
 
 const Login = ({ navigation }) => {
     const [email, onChangeEmail] = React.useState(null);
     const [password, onChangePassword] = React.useState(null);
     const [isSelected, setSelection] = useState(false);
-    
+
 
     return (
         <SafeAreaView style={styles.container}>
             <Image
                 style={styles.tinyLogo}
-                source={{
-                uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-            }}
-             />
+                source={require('../../public/img/logo.png')}
+            />
             <Text h1
                 style={styles.h1}
             >
@@ -33,47 +31,47 @@ const Login = ({ navigation }) => {
                 onChangeText={onChangePassword}
                 value={password}
                 placeholder=" Senha"
-                autoCompleteType="password"
                 placeholderTextColor="white"
+                autoCompleteType="password"
             />
             <View style={styles.checkboxContainer}>
                 <CheckBox
-                value={isSelected}
-                onValueChange={setSelection}
-                style={styles.checkbox}
+                    value={isSelected}
+                    onValueChange={setSelection}
+                    style={styles.checkbox}
                 />
                 <Text style={styles.label}>Lembrar Senha?</Text>
             </View>
-            <View style={styles.button}>
-           <Button
-                title="Entrar"
-                color="#102660"
-               
-         />
-            </View>
-            <View style={styles.buttonG}>
-           <Button
-                title="Continuar com o Google"
-                color="#102660"
-                //onPress={() => Alert.alert('Cannot press this one')}
-         />
-            </View>
-            <View style={styles.buttonG}>
-           <Button
-                title="Novo usuario crie uma conta"
-                color="#102660"
-                onPress={ () => navigation.navigate('Register')}
-         />
-            </View>
-            <Text 
-                style={styles.h2}
-                onPress={ () => navigation.navigate('Recover')}
+            <Text h1
+                style={styles.Ou}
             >
-                
-            Esqueceu sua senha? Clique aqui
+                Ou
+                </Text>
+            <View>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.TextButton}>
+                        Entrar
+                </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonG}>
+                    <Text style={styles.TextButton}>
+                        Continuar com Google
+                </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonG} onPress={() => navigation.navigate('Register')}>
+                    <Text style={styles.TextButton}>
+                        Novo usuario Crie uma Conta
+                </Text>
+                </TouchableOpacity>
+            </View>
+            <Text
+                style={styles.h2}
+                onPress={() => navigation.navigate('Recover')}
+            >
+                Esqueceu sua senha? Clique aqui
             </Text>
         </SafeAreaView>
-        
+
     );
 };
 
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         marginHorizontal: 16,
-      },
+    },
     input: {
         color: 'aliceblue',
         backgroundColor: '#102660',
@@ -96,31 +94,36 @@ const styles = StyleSheet.create({
     },
     h1: {
         fontSize: 16,
-        fontStyle: 'normal',    
+        fontStyle: 'normal',
         display: 'flex',
         marginLeft: 145,
         height: '15%',
         fontWeight: 'bold',
         color: '#00081d',
         alignItems: 'center',
+        top: 20,
     },
     h2: {
         fontSize: 16,
-        fontStyle: 'normal',    
+        fontStyle: 'normal',
         display: 'flex',
         marginLeft: 50,
         height: '15%',
         fontWeight: 'bold',
-        color: '#00081d',
+        color: '#00081D',
         alignItems: 'center',
     },
+    Ou: {
+        marginLeft: 175,
+        fontSize: 16,
+        color: '#00081d',
+    },
     button: {//Botão para Entrar
-        color: 'aliceblue',
         backgroundColor: '#102660',
         borderColor: '#102660',
         borderRadius: 30,
         height: 40,
-        margin: 12,
+        margin: 5,
         marginLeft: 145,
         marginRight: 145,
         borderWidth: 1,
@@ -137,21 +140,28 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     tinyLogo: {
-        width: 50,
-        height: 50,
-        marginLeft: 145,
-      },
-      checkboxContainer: {
+        marginLeft: 110,
+        bottom: 5,
+    },
+    checkboxContainer: {
         flexDirection: "row",
         marginBottom: 20,
         marginLeft: 100,
-      },
-      checkbox: {
+    },
+    checkbox: {
         alignSelf: "center",
-      },
-      label: {
+    },
+    label: {
         margin: 8,
-      },
+    },
+    TextButton: {
+        fontSize: 16,
+        paddingTop: 7,
+        fontStyle: 'normal',
+        color: 'white',
+        textAlignVertical: "center",
+        textAlign: "center",
+    }
 });
 
 export default Login;
