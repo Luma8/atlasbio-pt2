@@ -28,7 +28,7 @@ const Register = ({ navigation }) => {
                 onChangeText={onChangeEmail}
                 value={email}
                 placeholder=" Email"
-                autoCompleteType="password"
+                autoCompleteType="email"
                 placeholderTextColor="white"
             />
             <TextInput

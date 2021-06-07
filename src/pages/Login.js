@@ -8,7 +8,7 @@ const Login = ({ navigation }) => {
 
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <Image
                 style={styles.tinyLogo}
                 source={require('../../public/img/logo.png')}
@@ -70,7 +70,7 @@ const Login = ({ navigation }) => {
             >
                 Esqueceu sua senha? Clique aqui
             </Text>
-        </SafeAreaView>
+        </View>
 
     );
 };

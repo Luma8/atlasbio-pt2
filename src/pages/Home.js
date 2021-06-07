@@ -1,61 +1,62 @@
-import React, { useState } from "react";
-import { TextInput, SafeAreaView, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import React, { } from "react";
+import { SafeAreaView, StyleSheet, Text, Image, TouchableOpacity, View, ScrollView } from 'react-native';
 
 const Home = ({ navigation }) => {
-    const [email, onChangeEmail] = React.useState(null);
-    const [password, onChangePassword] = React.useState(null);
-    const [isSelected, setSelection] = useState(false);
-    
 
     return (
-        <SafeAreaView style={styles.container}>
-             <Image
-                style={styles.tinyLogo}
-                source={require('../../public/img/logo.png')}
-            />
-            <Text h1
-                style={styles.h1}
-            >
-                Recuperar Senha
-                </Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangeEmail}
-                value={email}
-                placeholder=" Email"
-                autoCompleteType="email"
-                placeholderTextColor="white"
-            />
-             
-             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-                <Text style={styles.TextButton}>
-                    Enviar
-                </Text>
-            </TouchableOpacity>
-            <Text style={styles.h2} onPress={() => navigation.navigate('Login')}> 
-            Sua senha será enviada para seu e-mail
-            </Text>
-        </SafeAreaView>
-        
+
+        <ScrollView style={styles.container}>
+            <View style={styles.holderTitle}>
+                <Text style={styles.h2}>
+                    Anatomia e Fisiologia Humana
+           </Text>
+            </View>
+            <View style={styles.item} style={styles.warpper}>
+                <Image
+                    style={styles.item2}
+                    style={styles.mb5}
+                    source={require('../../public/img/cintologia1.png')}
+                />
+                <TouchableOpacity style={styles.btnPrimary}>
+                    <Text>omg</Text>
+                </TouchableOpacity>
+
+                <Image
+                    style={styles.item2}
+                    style={styles.mb5}
+                    source={require('../../public/img/cintologia2.png')}
+                />
+                <TouchableOpacity style={styles.btnPrimary}>
+
+                </TouchableOpacity>
+
+                <Image
+                    style={styles.item2}
+                    style={styles.mb5}
+                    source={require('../../public/img/cintologia3.png')}
+                />
+                <TouchableOpacity style={styles.btnPrimary}>
+
+                </TouchableOpacity>
+            </View>
+        </ScrollView >
+
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         marginHorizontal: 16,
     },
-    input: {
-        color: 'aliceblue',
+    btnPrimary: {//Botão para Entrar
         backgroundColor: '#102660',
         borderColor: '#102660',
-        borderRadius: 30,
-        height: 40,
-        margin: 12,
-        marginLeft: 30,
-        marginRight: 30,
-        borderWidth: 1,
+        color: 'aliceblue',
+        borderRadius: 20,
+        marginTop: 20,
+        marginBottom: 20,
+        padding: 25,
     },
     h1: {
         fontSize: 16,
@@ -69,60 +70,31 @@ const styles = StyleSheet.create({
         top: 20,
     },
     h2: {
-        top: 180,
-        justifyContent: 'center',
-        fontSize: 16,
-        fontStyle: 'normal',
-        display: 'flex',
-        marginLeft: 30,
-        height: '15%',
         fontWeight: 'bold',
-        color: '#00081d',
-        alignItems: 'center',
-    },
-    button: {//Botão para Entrar
-        backgroundColor: '#102660',
-        borderColor: '#102660',
-        borderRadius: 30,
-        height: 40,
-        margin: 5,
-        marginLeft: 120,
-        marginRight: 120,
-        borderWidth: 1,
-    },
-    buttonG: {//Botão Grande
-        color: 'aliceblue',
-        backgroundColor: '#102660',
-        borderColor: '#102660',
-        borderRadius: 30,
-        height: 40,
-        margin: 12,
-        marginLeft: 30,
-        marginRight: 30,
-        borderWidth: 1,
-    },
-    tinyLogo: {
-        marginLeft: 110,
-        bottom: 5,
-    },
-    checkboxContainer: {
-        flexDirection: "row",
-        marginBottom: 20,
-        marginLeft: 100,
-    },
-    checkbox: {
-        alignSelf: "center",
-    },
-    label: {
-        margin: 8,
-    },
-    TextButton: {
-        fontSize: 16,
-        paddingTop: 7,
-        fontStyle: 'normal',
         color: 'white',
-        textAlignVertical: "center",
-        textAlign: "center",
+        fontSize: 20,
+    },
+    holderTitle: {
+        backgroundColor: '#102660',
+        padding: 10,
+        borderBottomRightRadius: 30,
+        borderTopRightRadius: 30,
+        marginBottom: 5,
+        marginTop: 5,
+    },
+    mb5: {
+        marginTop: 30,
+    },
+    item: {
+        maxWidth: 410,
+        width: 95,
+        textAlign: 'center',
+        marginRight: 4,
+        alignContent: 'space-between',
+    },
+    warpper: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
     }
 });
 
