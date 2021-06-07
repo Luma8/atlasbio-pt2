@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { TextInput, SafeAreaView, StyleSheet, Text, View, Image, CheckBox, TouchableOpacity } from 'react-native';
+import { TextInput, SafeAreaView, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 
-const Login = ({ navigation }) => {
+const Home = ({ navigation }) => {
     const [email, onChangeEmail] = React.useState(null);
     const [password, onChangePassword] = React.useState(null);
     const [isSelected, setSelection] = useState(false);
-
+    
 
     return (
         <SafeAreaView style={styles.container}>
-            <Image
+             <Image
                 style={styles.tinyLogo}
                 source={require('../../public/img/logo.png')}
             />
             <Text h1
                 style={styles.h1}
             >
-                Fazer Login
+                Recuperar Senha
                 </Text>
             <TextInput
                 style={styles.input}
@@ -26,52 +26,17 @@ const Login = ({ navigation }) => {
                 autoCompleteType="email"
                 placeholderTextColor="white"
             />
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangePassword}
-                value={password}
-                placeholder=" Senha"
-                placeholderTextColor="white"
-                autoCompleteType="password"
-            />
-            <View style={styles.checkboxContainer}>
-                <CheckBox
-                    value={isSelected}
-                    onValueChange={setSelection}
-                    style={styles.checkbox}
-                />
-                <Text style={styles.label}>Lembrar Senha?</Text>
-            </View>
-            <Text h1
-                style={styles.Ou}
-            >
-                Ou
+             
+             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.TextButton}>
+                    Enviar
                 </Text>
-            <View>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
-                    <Text style={styles.TextButton}>
-                        Entrar
-                </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonG}>
-                    <Text style={styles.TextButton}>
-                        Continuar com Google
-                </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonG} onPress={() => navigation.navigate('Register')}>
-                    <Text style={styles.TextButton}>
-                        Novo usuario Crie uma Conta
-                </Text>
-                </TouchableOpacity>
-            </View>
-            <Text
-                style={styles.h2}
-                onPress={() => navigation.navigate('Recover')}
-            >
-                Esqueceu sua senha? Clique aqui
+            </TouchableOpacity>
+            <Text style={styles.h2} onPress={() => navigation.navigate('Login')}> 
+            Sua senha será enviada para seu e-mail
             </Text>
         </SafeAreaView>
-
+        
     );
 };
 
@@ -96,7 +61,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontStyle: 'normal',
         display: 'flex',
-        marginLeft: 145,
+        marginLeft: 130,
         height: '15%',
         fontWeight: 'bold',
         color: '#00081d',
@@ -104,19 +69,16 @@ const styles = StyleSheet.create({
         top: 20,
     },
     h2: {
+        top: 180,
+        justifyContent: 'center',
         fontSize: 16,
         fontStyle: 'normal',
         display: 'flex',
-        marginLeft: 50,
+        marginLeft: 30,
         height: '15%',
         fontWeight: 'bold',
-        color: '#00081D',
-        alignItems: 'center',
-    },
-    Ou: {
-        marginLeft: 175,
-        fontSize: 16,
         color: '#00081d',
+        alignItems: 'center',
     },
     button: {//Botão para Entrar
         backgroundColor: '#102660',
@@ -124,8 +86,8 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         height: 40,
         margin: 5,
-        marginLeft: 145,
-        marginRight: 145,
+        marginLeft: 120,
+        marginRight: 120,
         borderWidth: 1,
     },
     buttonG: {//Botão Grande
@@ -164,4 +126,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Login;
+export default Home;
