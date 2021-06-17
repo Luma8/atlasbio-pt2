@@ -1,44 +1,49 @@
 import React, { } from "react";
-import { SafeAreaView, StyleSheet, Text, Image, TouchableOpacity, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, Image, TouchableOpacity, View, ScrollView } from 'react-native';
 
 const Home = ({ navigation }) => {
 
     return (
 
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+
             <View style={styles.holderTitle}>
                 <Text style={styles.h2}>
                     Anatomia e Fisiologia Humana
            </Text>
+
             </View>
-            <View style={styles.item} style={styles.warpper}>
-                <Image
-                    style={styles.item2}
-                    style={styles.mb5}
-                    source={require('../../public/img/cintologia1.png')}
-                />
-                <TouchableOpacity style={styles.btnPrimary}>
-                    <Text>omg</Text>
-                </TouchableOpacity>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                <View style={styles.item} style={styles.warpper}>
+                    <Image
+                        style={styles.item2}
+                        style={styles.mb5}
+                        source={require('../../public/img/cintologia1.png')}
+                    />
+                    <TouchableOpacity style={styles.btnPrimary}>
 
-                <Image
-                    style={styles.item2}
-                    style={styles.mb5}
-                    source={require('../../public/img/cintologia2.png')}
-                />
-                <TouchableOpacity style={styles.btnPrimary}>
+                    </TouchableOpacity>
 
-                </TouchableOpacity>
+                    <Image
+                        style={styles.item2}
+                        style={styles.mb5}
+                        source={require('../../public/img/cintologia2.png')}
+                    />
+                    <TouchableOpacity style={styles.btnPrimary}>
 
-                <Image
-                    style={styles.item2}
-                    style={styles.mb5}
-                    source={require('../../public/img/cintologia3.png')}
-                />
-                <TouchableOpacity style={styles.btnPrimary}>
+                    </TouchableOpacity>
 
-                </TouchableOpacity>
-            </View>
+                    <Image
+                        style={styles.item2}
+                        style={styles.mb5}
+                        source={require('../../public/img/cintologia3.png')}
+                    />
+                    <TouchableOpacity style={styles.btnPrimary}>
+
+                    </TouchableOpacity>
+
+                </View>
+            </ScrollView>
         </ScrollView >
 
     );
@@ -84,6 +89,7 @@ const styles = StyleSheet.create({
     },
     mb5: {
         marginTop: 30,
+        marginLeft: 17
     },
     item: {
         maxWidth: 410,
